@@ -17,7 +17,7 @@ class App extends Component {
 				completed: false
 			},
 			{
-				id: 1,
+				id: 3,
 				title: "Shoot A watergun at a man wearing a blue hat",
 				completed: false
 			}
