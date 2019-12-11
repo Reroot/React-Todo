@@ -19,6 +19,10 @@ export class TodoItem extends Component {
 
 	//needs to be wrapped
 	render() {
+		//destructing is great!
+		const { id, title } = this.props.todo;
+		//now we can replacce this.props.todo with nothing
+
 		return (
 			<div style={this.getStyle()}>
 				<input
@@ -30,11 +34,13 @@ export class TodoItem extends Component {
 					//the way around this bind is by creating methods within our props instead
 					// onChange={this.checked.bind(this)}
 					//if you use an arrow function you don't have to use bind this, you ccna just pass in the event
-					onChange={this.props.markComplete.bind(this, this.props.todo.id)}
+
+					//PASS UP ID FROM THIS ITEM
+					onChange={this.props.markComplete.bind(this, id)}
 					// onClick={this.props.markComplete.bind(this)}
 				/>{" "}
-				<p>{this.props.todo.title}</p>
-				<p>{this.props.todo.id}</p>
+				<p>{title}</p>
+				{/* <p>{this.props.todo.id}</p> */}{" "}
 			</div>
 		);
 	}

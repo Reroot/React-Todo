@@ -31,8 +31,9 @@ class App extends Component {
 		console.log("delete from app.js tower");
 	};
 
-	markComplete = () => {
-		console.log("from app js");
+	markComplete = (id) => {
+		console.log(id); // working becuase we passed up
+		//to acess our state ids we need to map through
 	};
 
 	render() {
@@ -40,6 +41,7 @@ class App extends Component {
 			<div>
 				<div>
 					<Header />
+					<AddItem />
 					{/* <AddItem /> */}
 					<Todos
 						todos={this.state.todos}
