@@ -1,8 +1,9 @@
 import React from "react";
+// import css from "./App.css";
 
 export default function AddItem() {
 	return (
-		<div style={{ backroundColor: "#333" }}>
+		<div style={{ backround: "light green" }}>
 			<input type="text" placeholder="Enter your task..." />
 		</div>
 	);

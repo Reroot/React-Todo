@@ -10,7 +10,7 @@ class App extends Component {
 			{
 				id: 1,
 				title: "Steal A hamburger",
-				completed: true
+				completed: false
 			},
 			{
 				id: 2,
@@ -26,11 +26,18 @@ class App extends Component {
 	};
 
 	// markComplete = (id) => {};
-
+	//delete todo
 	deleteTask = (id) => {
-		console.log("delete from app.js tower");
-	};
+		console.log(id);
+		//use filter, loop though based on a conition, return a new array
+		this.setState({
+			//copy everything by using spead oprator
+			//then filter them base on, if any todo where any id is not equal
 
+			todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+		});
+	};
+	//stike though flip boolean
 	markComplete = (id) => {
 		// working becuase we passed up
 		//to acess our state ids we need to map through

@@ -18,6 +18,7 @@ class Todos extends Component {
 					key={todo.id}
 					todo={todo}
 					markComplete={this.props.markComplete}
+					deleteTask={this.props.deleteTask}
 				/>
 			</h3>
 		));

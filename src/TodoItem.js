@@ -41,11 +41,19 @@ export class TodoItem extends Component {
 					// onClick={this.props.markComplete.bind(this)}
 				/>{" "}
 				<p>{title}</p>
+				<button style={btnStyle} onClick={this.props.deleteTask.bind(this, id)}>
+					[X]
+				</button>
 				{/* <p>{this.props.todo.id}</p> */}
 			</div>
 		);
 	}
 }
+
+const btnStyle = {
+	backround: "#ff0000",
+	padding: "5px 10px"
+};
 
 // const itemStyle = {
 // 	backgroundColor :
