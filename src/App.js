@@ -10,7 +10,7 @@ class App extends Component {
 			{
 				id: 1,
 				title: "Steal A hamburger",
-				completed: false
+				completed: true
 			},
 			{
 				id: 2,
@@ -32,8 +32,19 @@ class App extends Component {
 	};
 
 	markComplete = (id) => {
-		console.log(id); // working becuase we passed up
+		// working becuase we passed up
 		//to acess our state ids we need to map through
+		//we call this when we are going to change the state based on a response
+		this.setState({
+			todos: this.state.todos.map((todo) => {
+				if (todo.id === id) {
+					//change the state of the to do as we go though the maop
+					//when mark compete is called after a click
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			})
+		});
 	};
 
 	render() {

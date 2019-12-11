@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class TodoItem extends Component {
 	getStyle = () => {
 		return {
-			background: "#f4f4f5",
+			background: "gray",
 			textDecoration: this.props.todo.completed ? "line-through" : "none"
 		};
 	};
@@ -37,10 +37,11 @@ export class TodoItem extends Component {
 
 					//PASS UP ID FROM THIS ITEM
 					onChange={this.props.markComplete.bind(this, id)}
+					onClick={this.props.markComplete.bind(this)}
 					// onClick={this.props.markComplete.bind(this)}
 				/>{" "}
 				<p>{title}</p>
-				{/* <p>{this.props.todo.id}</p> */}{" "}
+				{/* <p>{this.props.todo.id}</p> */}
 			</div>
 		);
 	}
