@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import PropTypes from "prop-types";
+
 //fetch the current  item being passed in
 export class TodoItem extends Component {
 	getStyle = () => {
@@ -58,5 +60,9 @@ const btnStyle = {
 // const itemStyle = {
 // 	backgroundColor :
 // }
+
+// TodoItem.propTypes = {
+// 	todo: PropTypes.array.isRequired
+// };
 
 export default TodoItem;

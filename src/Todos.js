@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ToDoItem, { TodoItem } from "./TodoItem";
-import PropTypes from "prop-types";
+import ToDoItem from "./TodoItem";
+// import PropTypes from "prop-types";
 //todos is the name of our state, comes from the name we passed from app.js
 class Todos extends Component {
 	//to dos is the next level, bottom levvel [assed this.props.markcompepte]
@@ -25,8 +25,8 @@ class Todos extends Component {
 	}
 }
 //obj of props, should be the name of the class instead of default
-TodoItem.propTypes = {
-	todo: PropTypes.array.isRequired
-};
+// TodoItem.propTypes = {
+// 	todo: PropTypes.array.isRequired
+// };
 
 export default Todos;

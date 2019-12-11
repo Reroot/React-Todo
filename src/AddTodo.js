@@ -1,14 +1,14 @@
-import { React, Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-export class AddItem extends Component {
+export class AddTodo extends Component {
 	state = {
 		title: ""
 	};
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		this.props.addTodo(this.state.title);
+		// this.props.addTodo(this.state.title);
 		this.setState({ title: "" });
 	};
 	//e.target will give us whatever we type in
@@ -37,7 +37,9 @@ export class AddItem extends Component {
 	}
 }
 
-export default AddItem;
+// PropTypes
+AddTodo.propTypes = {
+	addTodo: PropTypes.func.isRequired
+};
 
-// let input = document.getElementById("#search").value;
-// input = input.toLowerCase();
+export default AddTodo;

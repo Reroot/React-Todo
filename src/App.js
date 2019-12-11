@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-// import "./App.css";
 import Todos from "./Todos";
 import Header from "./Header";
-import AddItem from "./AddItem";
+import AddTodo from "./AddTodo";
+// import axios from "axios";
+
 //rce
 class App extends Component {
 	state = {
@@ -24,6 +25,18 @@ class App extends Component {
 			}
 		]
 	};
+	// Add Todo
+	addTodo = (title) => {
+		// axios
+		// 	.post("https://jsonplaceholder.typicode.com/todos", {
+		// 		title,
+		// 		completed: false
+		// 	})
+		// 	.then((res) => {
+		// 		res.data.id = uuid.v4();
+		// 		this.setState({ todos: [...this.state.todos, res.data] });
+		// 	});
+	};
 
 	// markComplete = (id) => {};
 	//delete todo
@@ -43,7 +56,7 @@ class App extends Component {
 		//to acess our state ids we need to map through
 		//we call this when we are going to change the state based on a response
 		this.setState({
-			todos: this.state.todos.map((todo) => {
+			todos: this.state.todos.map((todo, key = todo.id) => {
 				if (todo.id === id) {
 					//change the state of the to do as we go though the maop
 					//when mark compete is called after a click
@@ -57,9 +70,11 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<div>
+				<div className="container">
 					<Header />
-					<AddItem />
+					{/* //for adding items we are modifying the state so we need,
+					the todos, and then to setState */}
+					<AddTodo />
 					{/* <AddItem /> */}
 					<Todos
 						todos={this.state.todos}
