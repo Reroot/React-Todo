@@ -25,8 +25,18 @@ class App extends Component {
 			}
 		]
 	};
-	// Add Todo
-	addTodo = (title) => {
+	// Add Todo, pass in props from state, will add dynamically with id
+	addTodo = (title, id) => {
+		// console.log(title);
+		//the spread op makes a new copy based on the old
+		//we need to use it to add/ using the spead oparator to the end
+		const newTodo = {
+			id,
+			title,
+			completed: false
+		};
+
+		this.setState({ todos: [...this.state.todos, newTodo] });
 		// axios
 		// 	.post("https://jsonplaceholder.typicode.com/todos", {
 		// 		title,
@@ -74,7 +84,10 @@ class App extends Component {
 					<Header />
 					{/* //for adding items we are modifying the state so we need,
 					the todos, and then to setState */}
-					<AddTodo />
+					{
+						//the passing up from addtodo, so we can use it here
+					}{" "}
+					<AddTodo addTodo={this.addTodo} />
 					{/* <AddItem /> */}
 					<Todos
 						todos={this.state.todos}

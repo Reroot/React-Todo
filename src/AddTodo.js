@@ -7,14 +7,20 @@ export class AddTodo extends Component {
 	};
 
 	onSubmit = (e) => {
+		//prevent from writing to a file
 		e.preventDefault();
-		// this.props.addTodo(this.state.title);
+		//pass title up, becuase we are chaning it
+		this.props.addTodo(this.state.title);
+		//clear the fields
 		this.setState({ title: "" });
+		//up one level, to app.js as it's imbedded
 	};
 	//e.target will give us whatever we type in
 	//and set it to the value
+	//this is fine for one field, but it's beetter to yuse brackets
 	onChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
+	//make sure to pass in name
+	//onChange = (e) => this.setState({ title: e.target.value });
 	render() {
 		return (
 			<form onSubmit={this.onSubmit} style={{ display: "flex" }}>
