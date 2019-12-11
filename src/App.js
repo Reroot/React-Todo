@@ -10,7 +10,7 @@ class App extends Component {
 			{
 				id: 1,
 				title: "Steal A hamburger",
-				completed: true
+				completed: false
 			},
 			{
 				id: 2,
@@ -25,13 +25,17 @@ class App extends Component {
 		]
 	};
 
+	markComplete = (id) => {
+		console.log("logged from app.js tower");
+	};
+
 	render() {
 		return (
 			<div>
 				<div>
 					<Header />
-					<AddItem />
-					<Todos todos={this.state.todos} />
+					{/* <AddItem /> */}
+					<Todos todos={this.state.todos} markComplete={this.markComplete} />
 				</div>
 			</div>
 		);

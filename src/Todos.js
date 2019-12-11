@@ -7,16 +7,17 @@ class Todos extends Component {
 		//app level state is shared
 		// return this.props.todos.map((todo) => <h2>{todo.title}</h2>);
 		//MAP through each todo
+
 		return this.props.todos.map((todo) => (
 			<h3>
 				{/* keys should be the id prop usually */}
-				<ToDoItem key={todo.id} todo={todo} />
+				<ToDoItem key={todo.id} todo={todo} markComplete={this.markComplete} />
 			</h3>
 		));
 	}
 }
 //obj of props, should be the name of the class instead of default
-TodoItem.PropTypes = {
+TodoItem.propTypes = {
 	todo: PropTypes.array.isRequired
 };
 
