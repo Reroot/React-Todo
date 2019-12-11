@@ -36,8 +36,8 @@ export class TodoItem extends Component {
 					//if you use an arrow function you don't have to use bind this, you ccna just pass in the event
 
 					//PASS UP ID FROM THIS ITEM
-					onChange={this.props.markComplete.bind(this, id)}
-					onClick={this.props.markComplete.bind(this)}
+					// onChange={this.props.markComplete.bind(this, id)}
+					onClick={this.props.markComplete.bind(this, id)}
 					// onClick={this.props.markComplete.bind(this)}
 				/>{" "}
 				<p>{title}</p>
