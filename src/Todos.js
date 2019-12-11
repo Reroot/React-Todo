@@ -3,6 +3,9 @@ import ToDoItem, { TodoItem } from "./TodoItem";
 import PropTypes from "prop-types";
 //todos is the name of our state, comes from the name we passed from app.js
 class Todos extends Component {
+	//to dos is the next level, bottom levvel [assed this.props.markcompepte]
+	markComplete = (i) => {};
+
 	render() {
 		//app level state is shared
 		// return this.props.todos.map((todo) => <h2>{todo.title}</h2>);

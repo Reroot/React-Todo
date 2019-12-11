@@ -25,8 +25,10 @@ class App extends Component {
 		]
 	};
 
-	markComplete = (id) => {
-		console.log("logged from app.js tower");
+	// markComplete = (id) => {};
+
+	deleteTask = (id) => {
+		console.log("delete from app.js tower");
 	};
 
 	render() {
@@ -35,7 +37,7 @@ class App extends Component {
 				<div>
 					<Header />
 					{/* <AddItem /> */}
-					<Todos todos={this.state.todos} markComplete={this.markComplete} />
+					<Todos todos={this.state.todos} deleteTask={this.deleteTask} />
 				</div>
 			</div>
 		);

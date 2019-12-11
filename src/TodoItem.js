@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class TodoItem extends Component {
 	getStyle = () => {
 		return {
-			background: "#f4f4f4",
+			background: "#f4f4f5",
 			textDecoration: this.props.todo.completed ? "line-through" : "none"
 		};
 	};
@@ -29,10 +29,12 @@ export class TodoItem extends Component {
 					//need to bind it to componets/
 					//the way around this bind is by creating methods within our props instead
 					// onChange={this.checked.bind(this)}
-					onChange={this.markComplete}
-					onClick={this.deleteTask}
+					//if you use an arrow function you don't have to use bind this, you ccna just pass in the event
+					onChange={this.props.markComplete}
+					// onClick={()}
 				/>{" "}
 				<p>{this.props.todo.title}</p>
+				<p>{this.props.todo.id}</p>
 			</div>
 		);
 	}
