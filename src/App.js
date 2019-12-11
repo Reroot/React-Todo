@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Todos from "./Todos";
 import Header from "./Header";
 import AddTodo from "./AddTodo";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+//this can genrate a uqnuie id hash
+import uuid from "uuid";
+import About from "./About";
 // import axios from "axios";
 
 //rce
@@ -9,12 +13,12 @@ class App extends Component {
 	state = {
 		todos: [
 			{
-				id: 1,
+				id: uuid.v4(),
 				title: "Steal A hamburger",
 				completed: false
 			},
 			{
-				id: 2,
+				id: uuid.v4(),
 				title: "Kill an Ant",
 				completed: false
 			},
@@ -82,23 +86,38 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="container">
-					<Header />
-					{/* //for adding items we are modifying the state so we need,
+			<Router>
+				<div>
+					<div className="container">
+						<Header />
+						{/* //This will act as home */}
+						<Route
+							exact
+							path="/"
+							render={(props) => (
+								<React.Fragment>
+									<AddTodo addTodo={this.addTodo} />
+									{/* <AddItem /> */}
+									<Todos
+										todos={this.state.todos}
+										deleteTask={this.deleteTask}
+										markComplete={this.markComplete.bind(this)}
+									/>
+								</React.Fragment>
+							)}
+						/>
+						{/* //adding exact before the route only get it idnvudailly */}
+						<Route path="/About" component={About}>
+							<About />
+						</Route>
+						{/* //for adding items we are modifying the state so we need,
 					the todos, and then to setState */}
-					{
-						//the passing up from addtodo, so we can use it here
-					}{" "}
-					<AddTodo addTodo={this.addTodo} />
-					{/* <AddItem /> */}
-					<Todos
-						todos={this.state.todos}
-						deleteTask={this.deleteTask}
-						markComplete={this.markComplete.bind(this)}
-					/>
+						{
+							//the passing up from addtodo, so we can use it here
+						}
+					</div>
 				</div>
-			</div>
+			</Router>
 		);
 	}
 }
