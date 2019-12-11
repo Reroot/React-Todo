@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 // import "./App.css";
 import Todos from "./Todos";
-
+import Header from "./Header";
+import AddItem from "./AddItem";
 //rce
 class App extends Component {
 	state = {
@@ -9,7 +10,7 @@ class App extends Component {
 			{
 				id: 1,
 				title: "Steal A hamburger",
-				completed: false
+				completed: true
 			},
 			{
 				id: 2,
@@ -27,7 +28,11 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Todos todos={this.state.todos} />
+				<div>
+					<Header />
+					<AddItem />
+					<Todos todos={this.state.todos} />
+				</div>
 			</div>
 		);
 	}
