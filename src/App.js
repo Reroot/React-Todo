@@ -25,13 +25,16 @@ class App extends Component {
 			}
 		]
 	};
+
 	// Add Todo, pass in props from state, will add dynamically with id
-	addTodo = (title, id) => {
+	addTodo = (title) => {
 		// console.log(title);
 		//the spread op makes a new copy based on the old
 		//we need to use it to add/ using the spead oparator to the end
+
 		const newTodo = {
-			id,
+			//adding incrementally new ids
+			id: this.state.todos.length + 1,
 			title,
 			completed: false
 		};
