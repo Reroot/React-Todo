@@ -31,13 +31,21 @@ class App extends Component {
 		console.log("delete from app.js tower");
 	};
 
+	markComplete = () => {
+		console.log("from app js");
+	};
+
 	render() {
 		return (
 			<div>
 				<div>
 					<Header />
 					{/* <AddItem /> */}
-					<Todos todos={this.state.todos} deleteTask={this.deleteTask} />
+					<Todos
+						todos={this.state.todos}
+						deleteTask={this.deleteTask}
+						markComplete={this.markComplete.bind(this)}
+					/>
 				</div>
 			</div>
 		);

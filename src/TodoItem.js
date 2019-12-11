@@ -30,8 +30,8 @@ export class TodoItem extends Component {
 					//the way around this bind is by creating methods within our props instead
 					// onChange={this.checked.bind(this)}
 					//if you use an arrow function you don't have to use bind this, you ccna just pass in the event
-					onChange={this.props.markComplete}
-					// onClick={()}
+					onChange={this.props.markComplete.bind(this, this.props.todo.id)}
+					// onClick={this.props.markComplete.bind(this)}
 				/>{" "}
 				<p>{this.props.todo.title}</p>
 				<p>{this.props.todo.id}</p>
