@@ -6,44 +6,54 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 //this can genrate a uqnuie id hash
 import uuid from "uuid";
 import About from "./About";
-// import axios from "axios";
+import axios from "axios";
 
 //rce
 class App extends Component {
 	state = {
-		todos: [
-			{
-				id: uuid.v4(),
-				title: "Steal A hamburger",
-				completed: false
-			},
-			{
-				id: uuid.v4(),
-				title: "Kill an Ant",
-				completed: false
-			},
-			{
-				id: 3,
-				title: "Shoot A watergun at a man wearing a blue hat",
-				completed: false
-			}
-		]
+		todos: []
 	};
+	//make our requests
+	componentDidMount() {
+		//requestm resolve/then/then
+		axios
+			.get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+			.then((res) => this.setState({ todos: res.data }));
+	}
+
+	//make a sample post request to json server
 
 	// Add Todo, pass in props from state, will add dynamically with id
+	//use the routes
+
 	addTodo = (title) => {
 		// console.log(title);
 		//the spread op makes a new copy based on the old
 		//we need to use it to add/ using the spead oparator to the end
 
-		const newTodo = {
-			//adding incrementally new ids
-			id: this.state.todos.length + 1,
-			title,
-			completed: false
-		};
+		//Axios gives us a promise back
+		axios
+			.post("https://jsonplaceholder.typicode.com/todos", {
+				title,
+				completed: false
+			})
+			.then((res) => {
+				res.data.id = uuid.v4();
+				this.setState({ todos: [...this.state.todos, res.data] });
+			});
+		//res.data.id = uuid.v4())
+		// 	this.setState({ todos: [...this.state.todos, res.data] })
+		// );
 
-		this.setState({ todos: [...this.state.todos, newTodo] });
+		// const newTodo = {
+		// 	//adding incrementally new ids
+		// 	id: this.state.todos.length + 1,
+		// 	title,
+		// 	completed: false
+		// };
+
+		//this.setState({ todos: [...this.state.todos, newTodo] });
+
 		// axios
 		// 	.post("https://jsonplaceholder.typicode.com/todos", {
 		// 		title,
@@ -60,6 +70,14 @@ class App extends Component {
 	deleteTask = (id) => {
 		console.log(id);
 		//use filter, loop though based on a conition, return a new array
+		axios
+			.delete("https://jsonplaceholder.typicode.com/todos/${id}")
+			.then((res) =>
+				this.setState({
+					todos: [...this.state.todos.filter((todo) => todo.id !== id)]
+				})
+			);
+
 		this.setState({
 			//copy everything by using spead oprator
 			//then filter them base on, if any todo where any id is not equal
